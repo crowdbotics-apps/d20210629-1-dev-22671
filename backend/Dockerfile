@@ -12,7 +12,7 @@ RUN apt-get update \
 WORKDIR /opt/webapp
 
 COPY Pipfil* ./
-RUN pip3 install --no-cache-dir cookiecutter -q 'pipenv==2018.11.26' -U pip \
+RUN pip3 install --no-cache-dir -q cookiecutter pipenv -U pip \
     && pipenv install --deploy --system
 
 FROM base as release
