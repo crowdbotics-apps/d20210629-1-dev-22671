@@ -1,7 +1,7 @@
 FROM python:3.8-slim-buster as base
 
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends linux-headers libpq-dev curl gcc \
+  && apt-get install -y --no-install-recommends linux-headers-$(uname -r) libpq-dev curl gcc \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
   # You can add additional steps to the build by appending commands down here using the
